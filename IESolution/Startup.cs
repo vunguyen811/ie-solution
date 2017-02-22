@@ -4,6 +4,7 @@ using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartup(typeof(Startup))]
+
 namespace IESolution
 {
     public partial class Startup
@@ -12,13 +13,14 @@ namespace IESolution
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-                GlobalConfiguration.Configuration
+            GlobalConfiguration.Configuration
                 .UseSqlServerStorage("HangireConnection");
             app.UseHangfireDashboard();
             app.UseHangfireServer();
-
-            //run background job
+            // #if !DEBUG
+            ////run background job
             //RecurringJob.AddOrUpdate(() => BackgroundJob.BackgroundJob.CreateOrder(), Cron.Minutely);
+            //#endif
         }
     }
 }

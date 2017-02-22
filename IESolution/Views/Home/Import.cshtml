@@ -3,5 +3,25 @@
     ViewBag.Title = "Import";
 }
 
-<h2>Import</h2>
+<h3 style="font-weight: bold; color: red">@ViewBag.Error</h3>
+<h3 style="font-weight: bold; color: green">@ViewBag.Success</h3>
+<h3 style="font-weight: bold; color: blue">@ViewBag.ExcuteTime</h3>
+<form action="~/Home/ImportFile" method="POST" enctype="multipart/form-data" style="margin-top: 50px;">
+    <div class="form-group">
+        <label for="runWith">Run with:</label>
+        <select class="form-control" id="runWith" name="runWith">
+            <option value="2">SQL</option>
+            <option value="1">LINQ</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="file" id="importFile" name="importFile">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<form action="~/Home/DeleteImportedOrder" method="GET" style="margin-top: 10px;">
+    <button type="submit" class="btn btn-primary">Delete Imported Order</button>
+</form>
+
 

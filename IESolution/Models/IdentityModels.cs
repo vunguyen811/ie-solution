@@ -26,6 +26,7 @@ namespace IESolution.Models
         }
 
         public DbSet<Order> Orders { get; set; }
+        public DbSet<ImportedOrder> ImportedOrders { get; set; }
 
         public static ApplicationDbContext Create()
         {
